@@ -1,0 +1,17 @@
+{
+  "artifact_type": "capability-execution-packet", "id": "packet:portfolio", "revision": "2",
+  "project_definition": "docs/project-definition.json#1",
+  "evidence_ids": ["source:resume", "source:local-projects", "source:brittany", "source:rauno", "source:bruno", "source:astro", "source:wcag"],
+  "council": "docs/persona-composition.json",
+  "nodes": [
+    {"id": "node:content", "owner": "content-audit", "dependencies": [], "read_scope": ["Resume", "Parent project directories"], "write_scope": ["docs/project-audit.json"], "output_type": "project-evidence-audit", "gate": "Evidence locators for every selected project; no secrets or inflated claims"},
+    {"id": "node:implementation", "owner": "root", "dependencies": ["node:content"], "write_scope": ["src", "public", "package.json", "Configuration", "docs excluding project-audit.json and independent-review.json"], "output_type": "static-portfolio-build", "gate": "Build and browser readiness"},
+    {"id": "node:review", "owner": "root after independent-reviewer usage-limit failure", "dependencies": ["node:implementation"], "write_scope": ["tests", "playwright.config.ts", "docs/quality-report.md"], "output_type": "verification-report", "gate": "Critical workflows, responsive behavior, no-JS fallback, reduced motion and accessibility checks tied to files"},
+    {"id": "node:integration", "owner": "root", "dependencies": ["node:review"], "write_scope": ["src", "docs/quality-report.md"], "output_type": "verified-delivery", "gate": "Resolve findings and rerun full checks"}
+  ],
+  "contracts": {"project_evidence": ["slug", "name", "summary", "stack", "source_paths", "verified_features", "uncertainties", "publication_boundary"], "case_study": "Schema-validated frontmatter plus Markdown body; stable slug, title, summary, category, tags, role, evidence and explicit limitations", "api": "None; contact uses mailto, demonstration uses local synthetic data"},
+  "verification_matrix": {"REQ-01": "research.md", "REQ-02": "Viewport screenshot and overflow checks", "REQ-03": "project-audit.json", "REQ-04": "Workflow browser tests", "REQ-05": "astro check and build", "REQ-06": "axe, keyboard, no-JS and reduced-motion"},
+  "review_gates": ["Council admission before dispatch", "Content audit before published case-study copy", "Browser review of built site before handoff"],
+  "replan_triggers": ["Source evidence contradicts resume", "Private material or credential exposure", "Browser incompatibility", "Unavailable dependencies", "Core journey failure"],
+  "approval_boundary": "Local work authorized; deployment and external communications out of scope"
+}

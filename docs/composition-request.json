@@ -1,0 +1,8 @@
+{
+  "decision_id": "decision:portfolio-experience",
+  "skill_ids": ["skill:product-ux-workflow-designer", "skill:adaptive-design-system-engineer", "skill:leader-agent", "skill:project-definition-interpreter", "skill:evidence-research-broker", "skill:persona-composer", "skill:agent-orchestrator", "skill:visual-interaction-qa-engineer"],
+  "user_archetype_ids": ["persona:agency-delivery-lead-female", "persona:agency-delivery-lead-male", "persona:full-stack-tradeoff-planner-female", "persona:full-stack-tradeoff-planner-male"],
+  "context_facet_ids": ["context-facet:keyboard-only", "context-facet:small-screen-mobile", "context-facet:reduced-motion"],
+  "expert_method_ids": [], "material_decision": true,
+  "project_signals": ["context:keyboard-only", "context:small-screen-mobile", "context:reduced-motion"]
+}

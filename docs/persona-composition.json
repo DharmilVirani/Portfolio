@@ -1,0 +1,293 @@
+{
+  "$schema": "schemas/persona-composition.schema.json",
+  "schema_version": "1.0.0",
+  "request": {
+    "decision_id": "decision:portfolio-experience",
+    "skill_ids": [
+      "skill:product-ux-workflow-designer",
+      "skill:adaptive-design-system-engineer",
+      "skill:leader-agent",
+      "skill:project-definition-interpreter",
+      "skill:evidence-research-broker",
+      "skill:persona-composer",
+      "skill:agent-orchestrator",
+      "skill:visual-interaction-qa-engineer"
+    ],
+    "selection_profile_ids": [
+      "selection-profile:product-ux-workflow-designer",
+      "selection-profile:adaptive-design-system-engineer",
+      "selection-profile:leader-agent",
+      "selection-profile:project-definition-interpreter",
+      "selection-profile:evidence-research-broker",
+      "selection-profile:persona-composer",
+      "selection-profile:agent-orchestrator",
+      "selection-profile:visual-interaction-qa-engineer"
+    ],
+    "user_archetype_ids": [
+      "persona:agency-delivery-lead-female",
+      "persona:agency-delivery-lead-male",
+      "persona:full-stack-tradeoff-planner-female",
+      "persona:full-stack-tradeoff-planner-male"
+    ],
+    "context_facet_ids": [
+      "context-facet:keyboard-only",
+      "context-facet:small-screen-mobile",
+      "context-facet:reduced-motion"
+    ],
+    "expert_method_ids": [],
+    "material_decision": true,
+    "project_signals": [
+      "context:keyboard-only",
+      "context:small-screen-mobile",
+      "context:reduced-motion"
+    ]
+  },
+  "selected": {
+    "user_archetype_ids": [
+      "persona:agency-delivery-lead-female",
+      "persona:agency-delivery-lead-male",
+      "persona:full-stack-tradeoff-planner-female",
+      "persona:full-stack-tradeoff-planner-male"
+    ],
+    "role_lens_ids": [
+      "role-lens:ux-service-design",
+      "role-lens:visual-interaction-design"
+    ],
+    "reviewer_lens_ids": [
+      "reviewer-lens:user-research-validity"
+    ],
+    "expert_method_ids": [],
+    "context_facet_ids": [
+      "context-facet:keyboard-only",
+      "context-facet:small-screen-mobile",
+      "context-facet:reduced-motion"
+    ]
+  },
+  "deferred": {
+    "user_archetype_ids": [],
+    "role_lens_ids": [
+      "role-lens:architecture-technical-leadership",
+      "role-lens:business-analysis-requirements",
+      "role-lens:social-behavioral-research",
+      "role-lens:user-research",
+      "role-lens:delivery-program-management",
+      "role-lens:quality-test-automation"
+    ],
+    "reviewer_lens_ids": [
+      "reviewer-lens:accessibility-inclusion",
+      "reviewer-lens:architecture-operability",
+      "reviewer-lens:evidence-integrity",
+      "reviewer-lens:safety-ethics"
+    ],
+    "expert_method_ids": [],
+    "context_facet_ids": []
+  },
+  "selection_trace": [
+    {
+      "component_id": "role-lens:ux-service-design",
+      "disposition": "selected",
+      "reason": "skill profile primary role",
+      "matched_ids": [
+        "skill:product-ux-workflow-designer"
+      ]
+    },
+    {
+      "component_id": "role-lens:visual-interaction-design",
+      "disposition": "selected",
+      "reason": "skill profile primary role",
+      "matched_ids": [
+        "skill:adaptive-design-system-engineer"
+      ]
+    },
+    {
+      "component_id": "role-lens:architecture-technical-leadership",
+      "disposition": "deferred",
+      "reason": "skill profile primary role",
+      "matched_ids": [
+        "skill:leader-agent"
+      ]
+    },
+    {
+      "component_id": "role-lens:business-analysis-requirements",
+      "disposition": "deferred",
+      "reason": "skill profile primary role",
+      "matched_ids": [
+        "skill:project-definition-interpreter"
+      ]
+    },
+    {
+      "component_id": "role-lens:social-behavioral-research",
+      "disposition": "deferred",
+      "reason": "skill profile primary role",
+      "matched_ids": [
+        "skill:evidence-research-broker"
+      ]
+    },
+    {
+      "component_id": "role-lens:user-research",
+      "disposition": "deferred",
+      "reason": "skill profile primary role",
+      "matched_ids": [
+        "skill:persona-composer"
+      ]
+    },
+    {
+      "component_id": "role-lens:delivery-program-management",
+      "disposition": "deferred",
+      "reason": "skill profile primary role",
+      "matched_ids": [
+        "skill:agent-orchestrator"
+      ]
+    },
+    {
+      "component_id": "role-lens:quality-test-automation",
+      "disposition": "deferred",
+      "reason": "skill profile primary role",
+      "matched_ids": [
+        "skill:visual-interaction-qa-engineer"
+      ]
+    },
+    {
+      "component_id": "persona:agency-delivery-lead-female",
+      "disposition": "selected",
+      "reason": "explicit personified user selection",
+      "matched_ids": [
+        "decision:portfolio-experience"
+      ]
+    },
+    {
+      "component_id": "persona:agency-delivery-lead-male",
+      "disposition": "selected",
+      "reason": "explicit personified user selection",
+      "matched_ids": [
+        "decision:portfolio-experience"
+      ]
+    },
+    {
+      "component_id": "persona:full-stack-tradeoff-planner-female",
+      "disposition": "selected",
+      "reason": "explicit personified user selection",
+      "matched_ids": [
+        "decision:portfolio-experience"
+      ]
+    },
+    {
+      "component_id": "persona:full-stack-tradeoff-planner-male",
+      "disposition": "selected",
+      "reason": "explicit personified user selection",
+      "matched_ids": [
+        "decision:portfolio-experience"
+      ]
+    },
+    {
+      "component_id": "context-facet:keyboard-only",
+      "disposition": "selected",
+      "reason": "explicit context signal",
+      "matched_ids": [
+        "context:keyboard-only"
+      ]
+    },
+    {
+      "component_id": "context-facet:small-screen-mobile",
+      "disposition": "selected",
+      "reason": "explicit context signal",
+      "matched_ids": [
+        "context:small-screen-mobile"
+      ]
+    },
+    {
+      "component_id": "context-facet:reduced-motion",
+      "disposition": "selected",
+      "reason": "explicit context signal",
+      "matched_ids": [
+        "context:reduced-motion"
+      ]
+    },
+    {
+      "component_id": "reviewer-lens:user-research-validity",
+      "disposition": "selected",
+      "reason": "material decision requires independent review",
+      "matched_ids": [
+        "selection-profile:product-ux-workflow-designer"
+      ]
+    },
+    {
+      "component_id": "reviewer-lens:accessibility-inclusion",
+      "disposition": "deferred",
+      "reason": "reviewer budget requires a staged review pass",
+      "matched_ids": [
+        "skill:product-ux-workflow-designer",
+        "skill:adaptive-design-system-engineer",
+        "skill:leader-agent",
+        "skill:project-definition-interpreter",
+        "skill:evidence-research-broker",
+        "skill:persona-composer",
+        "skill:agent-orchestrator",
+        "skill:visual-interaction-qa-engineer"
+      ]
+    },
+    {
+      "component_id": "reviewer-lens:architecture-operability",
+      "disposition": "deferred",
+      "reason": "reviewer budget requires a staged review pass",
+      "matched_ids": [
+        "skill:product-ux-workflow-designer",
+        "skill:adaptive-design-system-engineer",
+        "skill:leader-agent",
+        "skill:project-definition-interpreter",
+        "skill:evidence-research-broker",
+        "skill:persona-composer",
+        "skill:agent-orchestrator",
+        "skill:visual-interaction-qa-engineer"
+      ]
+    },
+    {
+      "component_id": "reviewer-lens:evidence-integrity",
+      "disposition": "deferred",
+      "reason": "reviewer budget requires a staged review pass",
+      "matched_ids": [
+        "skill:product-ux-workflow-designer",
+        "skill:adaptive-design-system-engineer",
+        "skill:leader-agent",
+        "skill:project-definition-interpreter",
+        "skill:evidence-research-broker",
+        "skill:persona-composer",
+        "skill:agent-orchestrator",
+        "skill:visual-interaction-qa-engineer"
+      ]
+    },
+    {
+      "component_id": "reviewer-lens:safety-ethics",
+      "disposition": "deferred",
+      "reason": "reviewer budget requires a staged review pass",
+      "matched_ids": [
+        "skill:product-ux-workflow-designer",
+        "skill:adaptive-design-system-engineer",
+        "skill:leader-agent",
+        "skill:project-definition-interpreter",
+        "skill:evidence-research-broker",
+        "skill:persona-composer",
+        "skill:agent-orchestrator",
+        "skill:visual-interaction-qa-engineer"
+      ]
+    }
+  ],
+  "gender_balance": {
+    "personified_count": 4,
+    "male": 2,
+    "female": 2,
+    "balanced": true
+  },
+  "catalog_revisions": {
+    "personas": "sha256:6486c736fdedf8cf13b296899c03fda5abdd0be3d9bc40e087424f89d39973e9",
+    "role_lenses": "sha256:599f8fb89e1a43abfc6acc750f498e1048fa72d878e1f6555cb8cd8d13264e73",
+    "reviewer_lenses": "sha256:6d3d6faa31049e5c8bfa12f93f485f835c99f23453399e14c6fb62f6dd370a9c",
+    "expert_methods": "sha256:5ff54eac4bc135d5c2c22fc01d4beb97e17225f6ce937f543f5b916c99af7dca",
+    "context_facets": "sha256:323867841cc0ed28f813a9210a66bc7374a6b38d2388d40a05fe2852ca2b1664",
+    "selection_profiles": "sha256:d8243e08d59fe2ad97ff56a35728bf2c3478ea3e36e90f7cefc92e6b1056b218",
+    "taxonomy": "sha256:86b3ef753e59b151e3bfbc35a9d142b93fee29aaf05ddb432c4208bec99ebdf2",
+    "reusable_policy": "sha256:d10197b3de8332785496ecf28380c5662e91ac301ad2937a9ad32b2c5e364c87"
+  },
+  "id": "composition:e64e0ca68d189ff2d7ec1075",
+  "composition_revision": "sha256:1c29be107c35360f32ba12e7368b29220e77ef6c2f682ba16797342165c7f46f"
+}

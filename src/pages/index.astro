@@ -1,0 +1,47 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+import SystemScene from '../components/SystemScene.astro';
+import ProjectVisual from '../components/ProjectVisual.astro';
+import { profile } from '../data/profile';
+const projects = (await getCollection('projects', ({ data }) => data.featured)).sort((a, b) => a.data.order - b.data.order);
+const archive = (await getCollection('projects', ({ data }) => !data.featured)).sort((a, b) => a.data.order - b.data.order);
+---
+<Layout>
+  <section class="hero container" aria-labelledby="hero-title">
+    <div class="hero-topline"><span><i class="status-dot"></i> CURRENTLY BUILDING AT YOUNG TURTLE LLP</span><span class="location-clock">AHMEDABAD, IN <span data-local-time>UTC +05:30</span></span></div>
+    <div class="hero-layout"><div class="hero-copy"><p class="eyebrow">A DEVELOPER, WITH THE WHOLE PICTURE IN MIND.</p><h1 id="hero-title">Complex systems.<br /><span>Considered</span><br />experiences<span class="blue-period">.</span></h1><p class="hero-description">I’m Dharmil. I connect the logic behind the screen<br class="desktop-break" /> with the experience in front of it.</p><div class="hero-actions"><a class="button button-primary" href="#work">Explore my work <Icon name="down" /></a><a class="text-link" href={profile.resume} download aria-label="Download resume">Download résumé <Icon name="external" /></a></div></div><div class="hero-art"><SystemScene /></div></div>
+    <div class="hero-bottom"><span>NEXT / SELECTED WORK<span class="separator">/</span>RUST SYSTEMS<span class="separator">/</span>FULL-STACK TOOLS<span class="separator">/</span>INTERFACE CRAFT</span><a href="#work" aria-label="Scroll to selected work">VIEW CASE STUDIES <Icon name="down" /></a></div>
+  </section>
+
+  <section id="work" class="work-section container" aria-labelledby="work-title">
+    <div class="section-kicker"><span>01 / SELECTED WORK</span><span>A FEW THINGS I’VE HELPED BRING TO LIFE</span></div>
+    <div class="section-heading"><h2 id="work-title">Different problems.<br /><span class="muted-heading">The same care.</span></h2><p>From event pipelines to everyday tools.<br />A selection of work across the stack.</p></div>
+    <div class="project-filters js-only" role="group" aria-label="Filter selected projects"><button data-filter="all" aria-pressed="true">All work <span>04</span></button><button data-filter="systems" aria-pressed="false">Systems</button><button data-filter="interfaces" aria-pressed="false">Interfaces</button></div>
+    <div class="project-grid">{projects.map((project, index) => <article class="project-card" data-category={project.data.visual === 'signal' ? 'systems' : 'interfaces'}><a class="project-card-link" href={`/work/${project.id}/`} aria-label={`Read ${project.data.title} case study`}><div class="project-image"><ProjectVisual type={project.data.visual} /><span class="project-open"><Icon name="external" /></span>{project.data.visual === 'typing' && <span class="award-label">✳ BEST UI/UX · WEB HORIZONS</span>}</div><div class="project-meta"><span>0{index + 1} / {project.data.category}</span><span>CASE STUDY <Icon name="external" /></span></div><h3>{project.data.title}</h3><p>{project.data.subtitle}</p><ul class="tags">{project.data.tags.slice(0, 4).map(tag => <li>{tag}</li>)}</ul></a></article>)}</div>
+    <p class="sr-only" role="status" data-filter-status></p>
+    <div class="archive"><div class="archive-heading"><h3>More from the workbench.</h3><span>SMALLER TOOLS. SAME CURIOSITY.</span></div>{archive.map(project => <a class="archive-row" href={`/work/${project.id}/`}><span>{project.data.title}</span><span>{project.data.subtitle}</span><span>{project.data.tags.slice(0, 2).join(' / ')}</span><Icon name="external" /></a>)}</div>
+  </section>
+
+  <section id="about" class="about-section" aria-labelledby="about-title"><div class="container"><div class="section-kicker"><span>02 / THE WAY I THINK</span><span>CURIOUS BY DEFAULT.</span></div><div class="about-intro"><div><p class="eyebrow">A LITTLE ABOUT ME</p><h2 id="about-title">I like knowing<br />how the pieces<br /><span class="blue-text">fit together.</span></h2></div><div class="about-copy"><p class="large-copy">The best part of building software?<br />Making something complicated feel clear.</p><p>I’m a software developer based in Ahmedabad, India. My work moves between Rust services, real-time data pipelines, and full-stack applications. I care about what happens behind an interface as much as how it feels to use.</p><p>That curiosity has taken me from internal tools at ISRO’s Space Applications Centre to trading infrastructure at Young Turtle. Outside the editor, you’ll usually find me playing sports or gaming.</p><div class="about-facts"><div><span>FOUNDATION</span><strong>B.Tech, Computer Engineering</strong><small>Marwadi University · 8.89 / 10 CGPA</small></div><div><span>ALSO SPEAKING</span><strong>English, Hindi & Gujarati</strong><small>Different languages. Same curiosity.</small></div></div></div></div><div class="capabilities">{profile.capabilities.map(capability => <article><span class="capability-number">/{capability.number}</span><h3>{capability.title}</h3><p>{capability.description}</p><ul class="tags">{capability.tags.map(tag => <li>{tag}</li>)}</ul><a class="text-link" href={`/work/${capability.project}/`}>{capability.link}<Icon name="arrow" /></a></article>)}</div></div></section>
+
+  <section id="experience" class="experience-section container" aria-labelledby="experience-title"><div class="section-kicker"><span>03 / ALONG THE WAY</span><a href={profile.resume} download aria-label="Download full resume">THE FULL RÉSUMÉ <Icon name="external" /></a></div><div class="experience-layout"><div><h2 id="experience-title">Good work.<br /><span class="muted-heading">Great learning.</span></h2><p class="experience-intro">Every environment brings a new<br />way to think about the problem.</p><div class="recognition"><span class="recognition-star">✳</span><div><span class="eyebrow">A MOMENT I’M PROUD OF</span><h3>First Runner Up.<br />Best UI/UX.</h3><p>TurboTypist · Web Horizons<br />Marwadi University</p></div></div></div><div class="experience-list">{profile.experience.map(job => <article class="experience-item"><div class="experience-date"><span>{job.period}</span>{job.current && <span class="current-tag">CURRENT</span>}</div><h3>{job.company}</h3><p class="job-role">{job.role}</p><p>{job.description}</p><ul class="tags">{job.tags.map(tag => <li>{tag}</li>)}</ul></article>)}</div></div></section>
+
+  <script>
+    const clock = document.querySelector('[data-local-time]');
+    if (clock) clock.textContent = new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', hour12: false }).format(new Date()) + ' IST';
+    document.querySelectorAll<HTMLButtonElement>('[data-filter]').forEach(button => {
+      button.addEventListener('click', () => {
+        document.querySelectorAll('[data-filter]').forEach(b => b.setAttribute('aria-pressed', String(b === button)));
+        let count = 0;
+        document.querySelectorAll<HTMLElement>('.project-card').forEach(card => {
+          card.hidden = button.dataset.filter !== 'all' && card.dataset.category !== button.dataset.filter;
+          if (!card.hidden) count++;
+        });
+        const status = document.querySelector('[data-filter-status]');
+        if (status) status.textContent = `${count} ${count === 1 ? 'project' : 'projects'} shown.`;
+      });
+    });
+  </script>
+</Layout>

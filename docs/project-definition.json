@@ -1,0 +1,28 @@
+{
+  "artifact_type": "project-definition", "id": "project:dharmil-portfolio", "revision": "2", "status": "ready_with_assumptions",
+  "refinement_contract": "docs/readability-refinement.md",
+  "problem": "Create a distinctive, reference-quality portfolio grounded in Dharmil Virani's resume and local projects.",
+  "outcome": "Visitors understand his specialism, inspect credible work, experience a small working demonstration, and contact him or download his resume.",
+  "users": {"primary": "Hiring managers and engineering leads", "secondary": "Collaborators and prospective clients", "operator": "Dharmil", "evidence_status": "assumption"},
+  "platforms": ["Desktop web", "Mobile web", "Keyboard", "Touch", "Reduced motion"],
+  "locale": "English; Asia/Kolkata clock",
+  "data": {"sources": ["User-provided resume", "Read-only project inspection"], "public": ["Professional history", "Project summaries", "Professional email and social links"], "excluded": ["Secrets", "Clinic records", "Broker data", "Internal ISRO material", "Private project source"]},
+  "requirements": [
+    {"id": "REQ-01", "need": "Research standout portfolio UI, content organization, and skill demonstration", "test": "Cited research document"},
+    {"id": "REQ-02", "need": "Original polished responsive visual identity", "test": "Rendered desktop/mobile/reflow screenshots"},
+    {"id": "REQ-03", "need": "Accurate biography, experience, skills and curated case studies", "test": "Resume and source evidence audit"},
+    {"id": "REQ-04", "need": "Working project navigation, skill demonstration, contact and resume", "test": "Browser workflow tests"},
+    {"id": "REQ-05", "need": "Maintainable structured content and static delivery", "test": "Content validation, typecheck and production build"},
+    {"id": "REQ-06", "need": "Keyboard access, contrast, reduced motion and useful no-JS content", "test": "Automated accessibility and interaction checks"}
+  ],
+  "experience": {"posture": "editorial portfolio", "direction": "Warm paper, oversized confident typography, cobalt ink, fine technical grid and purposeful system diagrams", "navigation": ["Work", "About", "Experience", "Contact"], "journey": "Positioning -> selected work -> case study -> experience -> contact", "motion": "Short hover/focus transitions and user-triggered demonstration; native scrolling", "fallback": "Server-generated HTML, native links, static illustration, reduced-motion CSS"},
+  "architecture": {"stack": "Astro static pages, TypeScript, authored CSS, schema-validated Markdown case studies", "content_management": "Repository files; no external CMS account required", "deployment": "Portable static dist; public deployment excluded until requested"},
+  "quality": {"accessibility_target": "WCAG 2.2 AA intent; automated checks do not certify conformance", "widths": [320, 390, 768, 1440], "budgets": {"initial_js_gzip_kb": 35, "initial_css_gzip_kb": 35}, "checks": ["Build", "Typecheck", "Browser interactions", "axe", "Geometry", "Reduced motion", "No JS"]},
+  "assumptions": [
+    {"id": "ASM-01", "text": "Engineering hiring and collaboration are the primary outcomes", "risk": "low", "owner": "Dharmil"},
+    {"id": "ASM-02", "text": "Resume dates and facts are authoritative as supplied; present employment is not independently reverified", "risk": "low", "owner": "Dharmil"},
+    {"id": "ASM-03", "text": "No measured project performance numbers, adoption counts or testimonials will be invented", "risk": "low", "owner": "root"}
+  ],
+  "recommendations": {"core": ["Research", "Responsive site", "Evidence-backed projects", "Resume/contact", "Rendered QA"], "recommended": ["Dedicated case-study URLs", "Small interactive engineering demo", "File-based content model", "SEO metadata"], "optional": ["Domain and deployment", "External CMS if editorial needs grow", "User interviews"], "rejected": ["Unverified metrics and testimonials", "Mandatory immersive navigation", "Live broker integration", "Fake contact submission"]},
+  "autonomy": {"approved": ["Local implementation", "Read-only neighboring project inspection", "Research", "Local testing"], "excluded": ["Public publishing", "Paid services", "Sending messages", "Changing source projects"]}
+}

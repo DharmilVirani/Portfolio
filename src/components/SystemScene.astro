@@ -1,0 +1,65 @@
+---
+interface Props { compact?: boolean; }
+const { compact = false } = Astro.props;
+---
+<div class:list={['system-scene', { compact }]} data-system-scene data-stage="0">
+  <div class="scene-caption"><span class="tiny-cross">+</span><span>A SYSTEM, FROM SIGNAL TO SCREEN</span><span>FIG. 01</span></div>
+  <svg class="architecture-art" viewBox="0 0 620 510" fill="none" role="img" aria-label="Three connected layers: data ingestion, processing, and delivery to an interface.">
+    <defs>
+      <pattern id={compact ? 'grid-small' : 'scene-grid'} width="30" height="30" patternUnits="userSpaceOnUse" patternTransform="matrix(.866 .5 -.866 .5 310 130)"><path d="M30 0H0V30" stroke="#243c68" stroke-opacity=".12" stroke-width="1" /></pattern>
+    </defs>
+    <path d="M30 345 310 183 590 345 310 507Z" fill={`url(#${compact ? 'grid-small' : 'scene-grid'})`} />
+    <path d="M310 72V435M93 307l217 126 218-126" stroke="#8490a3" stroke-dasharray="3 6" />
+    <g class="scene-layer layer-deliver">
+      <path d="m124 319 186-107 186 107v30L310 456 124 349Z" fill="#dfe4e9" stroke="#62728b" />
+      <path d="m124 319 186-107 186 107-186 108Z" fill="#edf0f1" stroke="#62728b" />
+      <path d="M310 427v29" stroke="#62728b" />
+      <path d="m159 320 151-87 151 87-151 88Z" fill="#f7f7f3" stroke="#9aa5b5" />
+      <path d="m208 319 88-50 111 64-87 51Z" fill="#d1dbf9" stroke="#204bdd" />
+      <path d="m227 319 68-39m-54 47 68-39m-53 48 68-39" stroke="#6b86d3" stroke-width="3" />
+      <path d="m313 341 20-3 2-19 22 1 5-13 23 5" stroke="#214cdb" stroke-width="3" />
+      <path d="m360 397 34-20" stroke="#8490a3" stroke-width="3" />
+    </g>
+    <g class="scene-connectors" stroke="#214cdb" stroke-width="1.5" stroke-dasharray="4 6"><path d="M201 281v43M421 281v44M310 336v44M310 182v35" /></g>
+    <g class="scene-layer layer-process">
+      <path d="m124 224 186-107 186 107v29L310 361 124 253Z" fill="#c0d0f7" stroke="#214cdb" />
+      <path d="m124 224 186-107 186 107-186 108Z" fill="#dae3fb" stroke="#214cdb" />
+      <path d="M310 332v29" stroke="#214cdb" />
+      <path d="m165 224 145-83 146 83-146 85Z" fill="#e9eeff" stroke="#8ea8e8" />
+      <path d="m224 224 86-49 87 49-87 50Z" fill="#214cdb" stroke="#163aa8" />
+      <path d="m246 224 64-37 64 37-64 37Z" stroke="#d1dcff" />
+      <path d="m289 217 15-8 16 9-14 8m7 4 15-8" stroke="white" stroke-width="3" />
+      <g stroke="#4e72ca"><path d="m194 208 24 14m-12-23 24 14m-12-22 24 14m92-53v27m16-19v27m16-18v26m57 24-25 14m13-23-25 15m12-23-25 14m-99 42v24m15-15v24m15-15v24" /></g>
+    </g>
+    <g class="scene-connectors" stroke="#214cdb" stroke-width="1.5" stroke-dasharray="4 6"><path d="M201 186v43M421 186v43M310 241v45" /></g>
+    <g class="scene-layer layer-ingest">
+      <path d="m124 130 186-107 186 107v28L310 266 124 158Z" fill="#2349c8" stroke="#193b9e" />
+      <path d="m124 130 186-107 186 107-186 108Z" fill="#2c59ea" stroke="#173cb1" />
+      <path d="M310 238v28" stroke="#193b9e" />
+      <path d="m163 131 147-85 147 85-147 85Z" stroke="#7392f4" />
+      <g stroke="#7392f4" stroke-opacity=".6"><path d="m200 110 146 85m-110-106 146 85m-109-106 146 85m-220-2 146-85m-110 106 146-85m-109 106 146-85" /></g>
+      <path d="m197 131 35 20 16-32 24 32 22-29 24 13 15-36 21 12 10-19 54 31" stroke="#f7f7f1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+      <circle cx="418" cy="123" r="5" fill="#d9ff8f" />
+      <path d="m287 202 21 12 21-12" stroke="#a9bdfd" />
+    </g>
+    <g stroke="#8490a3" stroke-width="1"><path d="M492 129h58v-31h29M493 225h50v18h36M493 324h58v46h28" /><circle cx="492" cy="129" r="3" fill="#214cdb" /><circle cx="493" cy="225" r="3" fill="#214cdb" /><circle cx="493" cy="324" r="3" fill="#214cdb" /></g>
+    <g fill="#46536c" font-family="monospace" font-size="11"><text x="548" y="87">01 / IN</text><text x="548" y="263">02 / RUN</text><text x="535" y="389">03 / OUT</text><text x="51" y="405">X</text><text x="557" y="447">Y</text></g>
+    <path d="M55 435v-18m-9 9h18m483 54v-18m-9 9h18" stroke="#8793a7" />
+  </svg>
+  {!compact && <div class="scene-controls js-only" aria-label="Explore the system layers"><button class="stage-button" data-stage-button="0" aria-pressed="true"><span>01</span> Ingest</button><button class="stage-button" data-stage-button="1" aria-pressed="false"><span>02</span> Process</button><button class="stage-button" data-stage-button="2" aria-pressed="false"><span>03</span> Deliver</button></div>}
+  {!compact && <p class="scene-description" data-scene-description aria-live="polite">It starts with an event. Give it a reliable path.</p>}
+</div>
+<script>
+  const descriptions = ['It starts with an event. Give it a reliable path.', 'Turn a stream of events into meaningful state.', 'Make the system understandable at the interface.'];
+  document.querySelectorAll<HTMLElement>('[data-system-scene]').forEach(scene => {
+    scene.querySelectorAll<HTMLButtonElement>('[data-stage-button]').forEach(button => {
+      button.addEventListener('click', () => {
+        const stage = Number(button.dataset.stageButton);
+        scene.dataset.stage = String(stage);
+        scene.querySelectorAll('[data-stage-button]').forEach(b => b.setAttribute('aria-pressed', String(b === button)));
+        const description = scene.querySelector('[data-scene-description]');
+        if (description) description.textContent = descriptions[stage];
+      });
+    });
+  });
+</script>

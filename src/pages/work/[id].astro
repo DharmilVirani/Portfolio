@@ -1,0 +1,19 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Icon from '../../components/Icon.astro';
+import ProjectVisual from '../../components/ProjectVisual.astro';
+import PipelineDemo from '../../components/PipelineDemo.astro';
+import TypingDemo from '../../components/TypingDemo.astro';
+export async function getStaticPaths() {
+  const projects = (await getCollection('projects')).sort((a,b) => a.data.order-b.data.order);
+  return projects.map((project, index) => ({ params: { id: project.id }, props: { project, next: projects[(index + 1) % projects.length] } }));
+}
+const { project, next } = Astro.props;
+const { Content, headings } = await render(project);
+---
+<Layout title={`${project.data.title} — Dharmil Virani`} description={project.data.summary}>
+  <section class="case-hero container"><a href="/#work" class="back-link"><Icon name="arrow" /> Back to selected work</a><div class="case-heading"><div><p class="eyebrow">{project.data.category.toUpperCase()} / CASE STUDY</p><h1>{project.data.title}</h1></div><p>{project.data.summary}</p></div><dl class="case-facts"><div><dt>CONTRIBUTION</dt><dd>{project.data.role}</dd></div><div><dt>CONTEXT</dt><dd>{project.data.context}</dd></div><div><dt>BUILT WITH</dt><dd><ul class="tags">{project.data.tags.map((tag: string) => <li>{tag}</li>)}</ul></dd></div></dl><ProjectVisual type={project.data.visual} large /><p class="visual-caption">Original portfolio illustration · Concept view, not a production screenshot</p></section>
+  <div class="case-body-layout container"><nav class="case-toc" aria-label="In this case study"><span>INSIDE THIS PROJECT</span>{headings.filter(h => h.depth === 2).map(heading => <a href={`#${heading.slug}`}>{heading.text}</a>)}{['signal', 'typing'].includes(project.data.visual) && <a href="#interactive-demo">Try the demonstration ↗</a>}</nav><div><article class="prose"><Content /></article>{project.data.visual === 'signal' && <div id="interactive-demo"><PipelineDemo /></div>}{project.data.visual === 'typing' && <div id="interactive-demo"><TypingDemo /></div>}</div></div>
+  <section class="next-project container" aria-label="Next project"><p class="eyebrow">KEEP EXPLORING / NEXT PROJECT</p><a href={`/work/${next.id}/`}>{next.data.title}<Icon name="external" /></a></section>
+</Layout>

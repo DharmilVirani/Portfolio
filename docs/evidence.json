@@ -1,0 +1,149 @@
+[
+  {
+    "$schema": "../.agent-skills/core/schemas/source-evidence.schema.json",
+    "schema_version": "1.0.0",
+    "id": "source:brittany-chiang-portfolio",
+    "slug": "brittany-chiang-portfolio",
+    "title": "Brittany Chiang portfolio",
+    "source_type": "other",
+    "publisher": { "name": "Brittany Chiang", "authors": ["Brittany Chiang"] },
+    "locator": { "url": "https://brittanychiang.com/" },
+    "access": { "method": "web", "accessed_at": "2026-09-09T00:00:00Z", "requires_auth": false, "availability": "public", "notes": "Live portfolio page reviewed for structure and public content patterns." },
+    "freshness": { "classification": "current", "status": "fresh", "last_verified_at": "2026-09-09T00:00:00Z", "review_after": "2026-12-09T00:00:00Z", "volatility_notes": "Personal portfolios can change without notice." },
+    "license": { "status": "unknown", "redistribution": "metadata_and_summary_only", "usage_notes": "Used only for design-pattern observation; no assets or layout copied." },
+    "confidence": { "level": "high", "score": 0.9, "rationale": "Source was directly accessed from the public site." },
+    "evidence_status": "validated",
+    "claims": [
+      { "claim_id": "claim:brittany-structure", "claim": "The site combines positioning, about copy, experience entries, project cards/archive, writing links, external profiles, and a resume link.", "relationship": "direct_support", "location": "Homepage text and navigation" },
+      { "claim_id": "claim:brittany-skill-context", "claim": "Technology skills are shown in context beside jobs and projects instead of as standalone percentage ratings.", "relationship": "direct_support", "location": "Experience and project sections" }
+    ]
+  },
+  {
+    "$schema": "../.agent-skills/core/schemas/source-evidence.schema.json",
+    "schema_version": "1.0.0",
+    "id": "source:rauno-freiberg-portfolio",
+    "slug": "rauno-freiberg-portfolio",
+    "title": "Rauno Freiberg portfolio",
+    "source_type": "other",
+    "publisher": { "name": "Rauno Freiberg", "authors": ["Rauno Freiberg"] },
+    "locator": { "url": "https://rauno.me/" },
+    "access": { "method": "web", "accessed_at": "2026-09-09T00:00:00Z", "requires_auth": false, "availability": "public", "notes": "Live portfolio page reviewed for information density and voice." },
+    "freshness": { "classification": "current", "status": "fresh", "last_verified_at": "2026-09-09T00:00:00Z", "review_after": "2026-12-09T00:00:00Z", "volatility_notes": "Personal portfolios can change without notice." },
+    "license": { "status": "unknown", "redistribution": "metadata_and_summary_only", "usage_notes": "Used only for pattern observation; no assets or copy reused." },
+    "confidence": { "level": "high", "score": 0.88, "rationale": "Source was directly accessed from the public site." },
+    "evidence_status": "validated",
+    "claims": [
+      { "claim_id": "claim:rauno-restraint", "claim": "The homepage presents a very compact identity with a small set of links and a memorable craft statement.", "relationship": "direct_support", "location": "Homepage text and link list" }
+    ]
+  },
+  {
+    "$schema": "../.agent-skills/core/schemas/source-evidence.schema.json",
+    "schema_version": "1.0.0",
+    "id": "source:bruno-simon-portfolio",
+    "slug": "bruno-simon-portfolio",
+    "title": "Bruno Simon portfolio",
+    "source_type": "other",
+    "publisher": { "name": "Bruno Simon", "authors": ["Bruno Simon"] },
+    "locator": { "url": "https://bruno-simon.com/" },
+    "access": { "method": "web", "accessed_at": "2026-09-09T00:00:00Z", "requires_auth": false, "availability": "public", "notes": "Live portfolio reviewed for interaction, control, and behind-the-scenes patterns." },
+    "freshness": { "classification": "current", "status": "fresh", "last_verified_at": "2026-09-09T00:00:00Z", "review_after": "2026-12-09T00:00:00Z", "volatility_notes": "Interactive portfolio state and server features can change frequently." },
+    "license": { "status": "unknown", "redistribution": "metadata_and_summary_only", "usage_notes": "Used only for design-pattern observation; no assets, code, or world model copied." },
+    "confidence": { "level": "high", "score": 0.9, "rationale": "Source was directly accessed from the public site." },
+    "evidence_status": "validated",
+    "claims": [
+      { "claim_id": "claim:bruno-interactive-world", "claim": "The portfolio exposes a driveable interactive world with controls, options, achievements, contact, and behind-the-scenes/source information.", "relationship": "direct_support", "location": "Homepage interactive UI and behind-the-scenes section" },
+      { "claim_id": "claim:bruno-fallback-awareness", "claim": "The site communicates renderer/server state and options, showing that memorable interaction still needs operational and fallback handling.", "relationship": "indirect_support", "location": "Options and server status text" }
+    ]
+  },
+  {
+    "$schema": "../.agent-skills/core/schemas/source-evidence.schema.json",
+    "schema_version": "1.0.0",
+    "id": "source:josh-comeau-site",
+    "slug": "josh-comeau-site",
+    "title": "Josh W. Comeau homepage",
+    "source_type": "other",
+    "publisher": { "name": "Josh W. Comeau", "authors": ["Josh W. Comeau"] },
+    "locator": { "url": "https://www.joshwcomeau.com/" },
+    "access": { "method": "web", "accessed_at": "2026-09-09T00:00:00Z", "requires_auth": false, "availability": "public", "notes": "Live site reviewed for technical writing and educational-content patterns." },
+    "freshness": { "classification": "current", "status": "fresh", "last_verified_at": "2026-09-09T00:00:00Z", "review_after": "2026-12-09T00:00:00Z", "volatility_notes": "Article listings and tutorials can change." },
+    "license": { "status": "unknown", "redistribution": "metadata_and_summary_only", "usage_notes": "Used only for pattern observation; no tutorial text or assets copied." },
+    "confidence": { "level": "high", "score": 0.9, "rationale": "Source was directly accessed from the public site." },
+    "evidence_status": "validated",
+    "claims": [
+      { "claim_id": "claim:josh-writing-depth", "claim": "The homepage foregrounds articles and tutorials with technical explanations and readable summaries.", "relationship": "direct_support", "location": "Articles and Tutorials section" }
+    ]
+  },
+  {
+    "$schema": "../.agent-skills/core/schemas/source-evidence.schema.json",
+    "schema_version": "1.0.0",
+    "id": "source:astro-content-collections",
+    "slug": "astro-content-collections",
+    "title": "Astro content collections documentation",
+    "source_type": "official_documentation",
+    "publisher": { "name": "Astro Docs", "organization": "The Astro project" },
+    "locator": { "url": "https://docs.astro.build/en/guides/content-collections/" },
+    "access": { "method": "web", "accessed_at": "2026-09-09T00:00:00Z", "requires_auth": false, "availability": "public", "notes": "Official documentation reviewed for file-based content and schema support." },
+    "freshness": { "classification": "current", "status": "fresh", "last_verified_at": "2026-09-09T00:00:00Z", "review_after": "2026-12-09T00:00:00Z", "volatility_notes": "Framework documentation changes as Astro evolves." },
+    "license": { "status": "unknown", "redistribution": "metadata_and_summary_only", "usage_notes": "Used to justify architectural direction; implementation uses installed package APIs." },
+    "confidence": { "level": "high", "score": 0.92, "rationale": "Official framework documentation." },
+    "evidence_status": "validated",
+    "claims": [
+      { "claim_id": "claim:astro-content-model", "claim": "Astro supports content collections and schemas suitable for file-based portfolio case studies.", "relationship": "direct_support", "location": "Content collections guide" }
+    ]
+  },
+  {
+    "$schema": "../.agent-skills/core/schemas/source-evidence.schema.json",
+    "schema_version": "1.0.0",
+    "id": "source:wcag-22",
+    "slug": "wcag-22",
+    "title": "Web Content Accessibility Guidelines 2.2",
+    "source_type": "standard",
+    "publisher": { "name": "World Wide Web Consortium", "organization": "W3C" },
+    "locator": { "url": "https://www.w3.org/TR/WCAG22/" },
+    "access": { "method": "web", "accessed_at": "2026-09-09T00:00:00Z", "requires_auth": false, "availability": "public", "notes": "Current W3C recommendation reviewed for accessibility targets." },
+    "freshness": { "classification": "current", "status": "fresh", "last_verified_at": "2026-09-09T00:00:00Z", "review_after": "2027-03-09T00:00:00Z", "volatility_notes": "Standards are comparatively stable but supporting techniques evolve." },
+    "license": { "status": "known", "name": "W3C Document License", "url": "https://www.w3.org/copyright/document-license-2023/", "redistribution": "metadata_and_summary_only", "usage_notes": "Used as reference for accessibility targets, not copied into the product." },
+    "confidence": { "level": "high", "score": 0.95, "rationale": "Primary accessibility standard source." },
+    "evidence_status": "validated",
+    "claims": [
+      { "claim_id": "claim:wcag-focus", "claim": "Keyboard-operable user interface components require a visible focus indicator for WCAG 2.2 AA intent.", "relationship": "direct_support", "location": "Success Criterion 2.4.7" },
+      { "claim_id": "claim:wcag-target", "claim": "WCAG 2.2 includes a Level AA target-size minimum for pointer inputs, with exceptions.", "relationship": "direct_support", "location": "Success Criterion 2.5.8" }
+    ]
+  },
+  {
+    "$schema": "../.agent-skills/core/schemas/source-evidence.schema.json",
+    "schema_version": "1.0.0",
+    "id": "source:dharmil-resume",
+    "slug": "dharmil-resume",
+    "title": "Dharmil Virani resume",
+    "source_type": "internal_artifact",
+    "publisher": { "name": "Dharmil Virani", "authors": ["Dharmil Virani"] },
+    "locator": { "path": "public/Dharmil_Resume.pdf" },
+    "access": { "method": "file", "accessed_at": "2026-09-09T00:00:00Z", "requires_auth": false, "availability": "internal", "notes": "User-provided resume copied into the portfolio public folder for download." },
+    "freshness": { "classification": "current", "status": "fresh", "last_verified_at": "2026-09-09T00:00:00Z", "review_after": "2026-12-09T00:00:00Z", "volatility_notes": "Resume employment facts can become stale and should be reviewed before deployment." },
+    "license": { "status": "not_applicable", "redistribution": "restricted", "usage_notes": "User supplied this resume for the portfolio. Do not redistribute outside the portfolio without the user's intent." },
+    "confidence": { "level": "high", "score": 0.9, "rationale": "The source is directly supplied by the portfolio owner." },
+    "evidence_status": "validated",
+    "claims": [
+      { "claim_id": "claim:resume-profile", "claim": "Resume supports Dharmil's name, software-developer positioning, contact links, education, employment, and project list used in the site.", "relationship": "direct_support", "location": "Resume content" }
+    ]
+  },
+  {
+    "$schema": "../.agent-skills/core/schemas/source-evidence.schema.json",
+    "schema_version": "1.0.0",
+    "id": "source:portfolio-project-audit",
+    "slug": "portfolio-project-audit",
+    "title": "Portfolio local project audit",
+    "source_type": "internal_artifact",
+    "publisher": { "name": "Codex local audit", "authors": ["content_audit", "root"] },
+    "locator": { "path": "docs/project-audit.json" },
+    "access": { "method": "file", "accessed_at": "2026-09-09T00:00:00Z", "requires_auth": false, "availability": "internal", "notes": "Read-only inspection of neighboring local projects in /home/optimus_prime/Projects." },
+    "freshness": { "classification": "current", "status": "fresh", "last_verified_at": "2026-09-09T00:00:00Z", "review_after": "2026-12-09T00:00:00Z", "volatility_notes": "Local projects can change as Dharmil continues development." },
+    "license": { "status": "not_applicable", "redistribution": "restricted", "usage_notes": "Use summaries and high-level evidence only; do not publish private source or operational data." },
+    "confidence": { "level": "medium", "score": 0.78, "rationale": "Source inspection supports implementation descriptions, but it is not runtime verification or authorship proof for every line." },
+    "evidence_status": "validated",
+    "claims": [
+      { "claim_id": "claim:audit-featured-projects", "claim": "The selected case studies are grounded in local project inspection and resume context, with publication boundaries and uncertainties recorded.", "relationship": "direct_support", "location": "docs/project-audit.json selected and archive_candidates" }
+    ]
+  }
+]

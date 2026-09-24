@@ -1,0 +1,49 @@
+---
+const prompt = 'good systems make complex things feel simple.';
+---
+<section class="case-demo" aria-labelledby="typing-demo-title" data-typing-demo data-prompt={prompt}>
+  <span class="eyebrow">A LITTLE INTERACTION TO TRY</span>
+  <h3 id="typing-demo-title">Find your flow.</h3>
+  <p>Type the sentence below. A small reimagining of TurboTypist, made for this portfolio.</p>
+  <div class="typing-prompt"><span class="sr-only">Sentence to type: {prompt}</span><span data-prompt-render aria-hidden="true">{prompt}</span></div>
+  <div class="typing-interaction js-only"><label class="typing-input-label" for="typing-input">Your turn</label><input id="typing-input" class="typing-input" type="text" autocomplete="off" spellcheck="false" autocapitalize="off" maxlength="80" placeholder="Start typing here…" aria-describedby="typing-help" /><div class="typing-stats"><span><strong data-typing-accuracy>—</strong> accuracy</span><span><strong data-typing-wpm>—</strong> WPM</span><span><strong data-typing-elapsed>0</strong>s elapsed</span></div><button class="button button-secondary" data-typing-reset>Start again ↻</button><p id="typing-status" role="status"></p></div>
+  <p id="typing-help" class="demo-disclaimer">Timer starts with your first character. Correct characters are underlined; mismatches have a wavy underline. WPM uses correct characters ÷ 5 ÷ elapsed minutes. This is a mini-demo, not a standardized benchmark.</p>
+  <noscript><p>Enable JavaScript to try the optional typing interaction.</p></noscript>
+</section>
+<script>
+  const demo = document.querySelector<HTMLElement>('[data-typing-demo]');
+  if (demo) {
+    const prompt = demo.dataset.prompt || '';
+    const input = demo.querySelector<HTMLInputElement>('#typing-input')!;
+    const render = demo.querySelector('[data-prompt-render]')!;
+    const status = demo.querySelector('#typing-status')!;
+    let started: number | null = null;
+    let finished: number | null = null;
+    let interval: ReturnType<typeof setInterval> | undefined;
+    const set = (selector: string, value: string) => { const el = demo.querySelector(selector); if (el) el.textContent = value; };
+    const update = () => {
+      const elapsed = started === null ? 0 : ((finished ?? performance.now()) - started) / 1000;
+      const correct = [...input.value].filter((c, i) => c === prompt[i]).length;
+      set('[data-typing-elapsed]', String(Math.floor(elapsed)));
+      set('[data-typing-accuracy]', input.value.length ? `${Math.round(correct / input.value.length * 100)}%` : '—');
+      set('[data-typing-wpm]', elapsed >= 1 && correct ? String(Math.round(correct / 5 / (elapsed / 60))) : '—');
+    };
+    input.addEventListener('input', () => {
+      if (started === null && input.value.length) { started = performance.now(); interval = setInterval(update, 250); }
+      render.replaceChildren(...[...prompt].map((c, i) => {
+        const span = document.createElement('span'); span.textContent = c;
+        if (i < input.value.length) span.className = input.value[i] === c ? 'correct' : 'incorrect';
+        return span;
+      }));
+      if (input.value === prompt && finished === null) { finished = performance.now(); clearInterval(interval); input.readOnly = true; status.textContent = 'Nicely done. Sentence complete! Select Start again for another round.'; }
+      update();
+    });
+    demo.querySelector('[data-typing-reset]')?.addEventListener('click', () => {
+      clearInterval(interval); started = null; finished = null; input.value = ''; input.readOnly = false; render.textContent = prompt;
+      status.textContent = 'Ready for another round.'; update(); input.focus();
+    });
+    window.addEventListener('pagehide', () => clearInterval(interval));
+    window.addEventListener('pageshow', event => { if (event.persisted && started !== null && finished === null) interval = setInterval(update, 250); });
+  }
+</script>
+<style>:global(.js) .typing-interaction{flex-direction:column;align-items:start}.typing-interaction{width:100%}.typing-interaction input{width:100%}.demo-disclaimer{font-size:9px!important;margin-top:18px!important}#typing-status{font-size:11px;min-height:20px}</style>

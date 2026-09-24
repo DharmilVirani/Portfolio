@@ -1,0 +1,163 @@
+{
+  "artifact_type": "project-evidence-audit",
+  "id": "audit:portfolio-projects",
+  "revision": "1",
+  "project_definition": "docs/project-definition.json#1",
+  "council": "docs/persona-composition.json",
+  "access_date": "2026-09-09",
+  "requirement_ids": ["REQ-03"],
+  "method": "Read-only inspection of selected documentation, manifests and source slices. No neighboring applications were executed. No databases, credentials, environment files, clinic records, or generated customer artifacts were opened. Source presence supports implementation descriptions, not successful runtime behavior or individual authorship.",
+  "source_root": "/home/optimus_prime/Projects",
+  "global_publication_boundary": "Publish original high-level summaries and purpose-built illustrations only. Do not publish private source, operational screenshots, medical records, credentials, proprietary employer material or inferred GitHub URLs. User identifies parent directory as their projects; precise role, collaboration and public-source rights remain unverified unless supported by resume.",
+  "selected": [
+    {
+      "slug": "signal-platform",
+      "name": "Market Signal Platform",
+      "summary": "A connected market-data and strategy system spanning Rust ingestion, strategy evaluation, API orchestration and operator dashboards.",
+      "category": "Systems engineering",
+      "stack": ["Rust", "Tokio", "Node.js", "Express", "Next.js", "React", "PostgreSQL", "Redis", "Docker", "Nginx"],
+      "source_paths": [
+        "New-AlgoTrading/AGENTS.md",
+        "New-AlgoTrading/graphify-out/GRAPH_REPORT.md",
+        "New-AlgoTrading/README.md",
+        "New-AlgoTrading/signal-generator/rust-engine/Cargo.toml",
+        "New-AlgoTrading/signal-generator/rust-engine/src/main.rs:1",
+        "New-AlgoTrading/signal-generator/rust-ws/src/main.rs:1",
+        "New-AlgoTrading/signal-generator/frontend/package.json",
+        "New-AlgoTrading/signal-generator/apps/api-server/src/routes/approval.routes.js:1",
+        "New-AlgoTrading/signal-generator/apps/api-server/src/routes/signal.routes.js:1"
+      ],
+      "verified_features": [
+        {"claim": "Rust engine wires tick consumption, deployment refresh, scheduling, approval queue and signal publication modules with Redis and PostgreSQL.", "evidence": "New-AlgoTrading/signal-generator/rust-engine/src/main.rs:1", "level": "source_structure"},
+        {"claim": "Strategy implementations are shared local Cargo dependencies rather than separate frontend formulas.", "evidence": "New-AlgoTrading/signal-generator/rust-engine/Cargo.toml:8", "level": "manifest"},
+        {"claim": "Rust WebSocket service includes subscription management, reconnect handling and active-provider publication gating.", "evidence": "New-AlgoTrading/signal-generator/rust-ws/src/main.rs:1", "level": "source_structure"},
+        {"claim": "Express approval routes include authenticated listing plus admin approval and rejection actions.", "evidence": "New-AlgoTrading/signal-generator/apps/api-server/src/routes/approval.routes.js:14", "level": "source_structure"},
+        {"claim": "Next.js/React dashboard stack includes Socket.IO client and chart dependencies.", "evidence": "New-AlgoTrading/signal-generator/frontend/package.json:10", "level": "manifest"}
+      ],
+      "recommended_narrative": {
+        "headline": "From a market tick to an actionable signal.",
+        "problem": "Market events, strategy state and operator decisions must remain connected across several services.",
+        "approach": "Explain the ingest → event transport → strategy engine → API → dashboard path, and show where approval sits in that flow.",
+        "demonstration": "Use an original static architecture illustration or an explicitly synthetic local event demonstration. No live market connectivity is needed.",
+        "outcome": "A source-backed example of integrating systems programming with full-stack product workflows. Do not imply measured trading returns or validated scalability."
+      },
+      "uncertainties": [
+        "Resume and supplied task establish relevant professional context; exact individual contribution to every service is unverified. Avoid sole-author or complete ownership claims.",
+        "README describes paper-trading phase, while current source contains execution-consumer and live-orders paths. Current broker execution capability and runtime mode are not verified; do not assert that the repository categorically cannot execute live orders.",
+        "README capacity numbers and claims of no lookahead or perfect backtest parity were not independently tested. Omit numerical capacity, profitability and correctness guarantees.",
+        "Graph report contains many inferred edges and was used only as required navigation context; source claims above are based on manifests and direct source slices.",
+        "No public repository URL or permission to redistribute source has been verified."
+      ],
+      "publication_boundary": "High-level architecture and careful contribution framing only; no internal broker settings, exact operational datasets, private code, or production screenshots.",
+      "public_url": null
+    },
+    {
+      "slug": "veterinary-drug-index",
+      "name": "Veterinary Drug Index",
+      "summary": "An Electron desktop application for organizing veterinary medicine records with SQLite storage and Excel import/export.",
+      "category": "Desktop application",
+      "stack": ["Electron", "Node.js", "Express", "SQLite", "ExcelJS", "JavaScript"],
+      "source_paths": ["animal_medicines/package.json", "animal_medicines/index.js:9", "animal_medicines/app.js:85", "animal_medicines/app.js:148", "animal_medicines/app.js:189", "animal_medicines/app.js:263", "animal_medicines/app.js:395", "animal_medicines/app.js:614"],
+      "verified_features": [
+        {"claim": "Electron window loads the application UI and starts a local Express server.", "evidence": "animal_medicines/index.js:9", "level": "source_structure"},
+        {"claim": "SQLite records include medicine name, species, dose, remarks and reference fields.", "evidence": "animal_medicines/app.js:85", "level": "schema_in_source"},
+        {"claim": "Excel uploads are parsed into records with duplicate checks before insertion.", "evidence": "animal_medicines/app.js:189", "level": "source_structure"},
+        {"claim": "Filtered and full Excel export routes are implemented.", "evidence": "animal_medicines/app.js:263", "level": "source_structure"},
+        {"claim": "Medicine lookup filters by name and species, with distinct names and species supplied for selection.", "evidence": "animal_medicines/app.js:395", "level": "source_structure"}
+      ],
+      "recommended_narrative": {
+        "headline": "Make a specialist reference easier to work with.",
+        "problem": "A veterinary medicine collection needs structured lookup and a practical path between spreadsheets and a desktop application.",
+        "approach": "Show the spreadsheet → validated record structure → local database → species/name lookup → export workflow.",
+        "demonstration": "Illustrate the workflow using invented neutral record labels; never show real dose recommendations or clinic records.",
+        "outcome": "An implemented local records workflow bridging a familiar spreadsheet format and a focused desktop interface."
+      },
+      "uncertainties": ["No clinical validation, adoption counts, user interviews, measured time savings or runtime tests were performed.", "Resume supports the project; exact independent/team ownership is not independently audited.", "Existing Electron source has legacy nodeIntegration and contextIsolation settings; do not call it security-hardened.", "Package configuration lists Windows and macOS artifacts but platform builds were not run.", "No public source URL verified."],
+      "publication_boundary": "Discuss software organization and workflow; do not publish medical advice, patient/client data, real medicine datasets or private source.",
+      "public_url": null
+    },
+    {
+      "slug": "turbotypist",
+      "name": "TurboTypist",
+      "summary": "A browser typing experience with timed practice, difficulty and genre selection, and live performance feedback.",
+      "category": "Interactive web",
+      "stack": ["HTML", "CSS", "JavaScript", "Web Speech API"],
+      "source_paths": ["WebHorizon/index.html:12", "WebHorizon/index.html:20", "WebHorizon/index.html:87", "WebHorizon/script.js:148", "WebHorizon/script.js:228", "WebHorizon/script.js:349", "WebHorizon/script.js:377", "/home/optimus_prime/Desktop/Documents/Resume/Dharmil_Resume_v2.pdf"],
+      "verified_features": [
+        {"claim": "UI explicitly names the project TurboTypist despite its WebHorizon folder name.", "evidence": "WebHorizon/index.html:12", "level": "source_content"},
+        {"claim": "Practice starts a 45-second countdown and supports stopping a session.", "evidence": "WebHorizon/script.js:148", "level": "source_structure"},
+        {"claim": "Difficulty and genre selectors choose practice text.", "evidence": "WebHorizon/script.js:377", "level": "source_structure"},
+        {"claim": "Input updates speed/accuracy displays and mismatch highlighting.", "evidence": "WebHorizon/script.js:228", "level": "source_structure"},
+        {"claim": "Resume reports First Runner Up and Best UI/UX recognition.", "evidence": "/home/optimus_prime/Desktop/Documents/Resume/Dharmil_Resume_v2.pdf", "level": "user_resume_via_parent_handoff"}
+      ],
+      "recommended_narrative": {
+        "headline": "A small interaction, considered from start to finish.",
+        "problem": "Typing practice needs immediate, understandable feedback and a clear session boundary.",
+        "approach": "Explain how text selection, session state, mismatch highlighting and end-of-session feedback fit together.",
+        "demonstration": "A newly authored short typing interaction can demonstrate the portfolio owner's UI interests, clearly labeled as a portfolio mini-demo rather than the original app.",
+        "outcome": "Resume-backed design recognition and source-backed interaction work."
+      },
+      "uncertainties": ["Awards are supplied by resume, not externally verified; avoid inventing award organizer, competition scale or date.", "The legacy accuracy metric divides matched words by all prompt words, so do not call it a standard or validated typing benchmark.", "No current browser, accessibility or authentication validation of the original application was performed.", "No public source or deployed URL verified."],
+      "publication_boundary": "Original portfolio illustration and high-level interaction explanation; do not copy third-party practice prose or publish user records.",
+      "public_url": null
+    },
+    {
+      "slug": "foodie",
+      "name": "Foodie",
+      "summary": "A React food browsing and cart project with account and address interfaces, supported by a Node API layer.",
+      "category": "Full-stack web",
+      "stack": ["React", "Node.js", "Express", "React Router", "Redux", "MongoDB (resume)"],
+      "source_paths": ["foodie/package.json", "foodie/src/App.js", "foodie/src/Pages/Home/Home.js:19", "foodie/src/Pages/Usermenu/Profile/Cart.js:1", "foodie/src/Pages/Usermenu/Profile/Cart.js:174", "foodie/server/server.js:8", "foodie/README.md", "/home/optimus_prime/Desktop/Documents/Resume/Dharmil_Resume_v2.pdf"],
+      "verified_features": [
+        {"claim": "React Router defines home, login, signup, profile, cart and add-address views.", "evidence": "foodie/src/App.js", "level": "source_structure"},
+        {"claim": "Food items can be submitted to a cart API from the browsing UI.", "evidence": "foodie/src/Pages/Home/Home.js:19", "level": "source_structure"},
+        {"claim": "Cart UI fetches items, updates quantities, removes or clears items, and calculates totals.", "evidence": "foodie/src/Pages/Usermenu/Profile/Cart.js:1", "level": "source_structure"},
+        {"claim": "Current local server registers an in-memory mock API and serves the production React bundle.", "evidence": "foodie/server/server.js:8", "level": "source_structure"},
+        {"claim": "MongoDB is described by the resume and mongoose exists in the package manifest; the inspected current server is not evidence of a live MongoDB deployment.", "evidence": "foodie/package.json", "level": "manifest_and_user_resume_via_parent_handoff"}
+      ],
+      "recommended_narrative": {
+        "headline": "Connect browsing, account state and a useful cart.",
+        "problem": "A food catalog becomes a product when browsing, item selection and account workflows share coherent state.",
+        "approach": "Focus on page routing, API-connected cart actions, quantity totals and profile/address interfaces.",
+        "demonstration": "Use an original stylized catalog/cart illustration; identify the local demo backend as simulated when discussing it.",
+        "outcome": "A full-stack learning project showing interface composition and API integration."
+      },
+      "uncertainties": ["The Place Order button only blurs itself in the inspected source. Do not claim functioning checkout, payment, delivery or order fulfillment.", "README's 100 concurrent users is a target with commands, not a measured result. No capacity claim is supported.", "Current server uses a mock API; MongoDB should be qualified as resume-listed unless another source is inspected.", "No current runtime or public deployment verified."],
+      "publication_boundary": "Discuss interface/API implementation without customer data, unverified commercial outcomes, payment claims or fabricated deployment links.",
+      "public_url": null
+    }
+  ],
+  "archive_candidates": [
+    {
+      "slug": "web-to-apk",
+      "name": "Web to APK Converter",
+      "summary": "An Electron developer tool that analyzes a web project, builds assets, creates an Android shell and invokes APK tooling.",
+      "stack": ["Electron", "Node.js", "JavaScript", "Android SDK"],
+      "source_paths": ["web2apk/package.json", "web2apk/src/core/ConversionEngine.js:59", "web2apk/src/core/analyzer/ProjectAnalyzer.js:15", "web2apk/src/core/mobile/APKBuilder.js:65", "web2apk/src/core/mobile/APKBuilder.js:380"],
+      "verified_features": ["Conversion pipeline composes analyzer, web builder, mobile shell generator and APK builder.", "Analyzer inspects framework dependencies and suggests backend modes.", "APK builder source uses Android SDK tools and marks output as a debug build."],
+      "recommended_narrative": "A practical experiment in bridging web projects and Android packaging.",
+      "uncertainties": ["Do not repeat README's store-ready or universal framework compatibility claims; builder labels debug output and release signing is separate.", "Build path currently invokes SDK tools directly despite README emphasizing Gradle/Capacitor; use general Android shell wording.", "Generated output was not opened or executed, and ownership/public source rights are unverified."],
+      "publication_boundary": "High-level developer-tool summary only; no source ZIPs or generated private application content.",
+      "public_url": null
+    },
+    {
+      "slug": "backend-starter-kit",
+      "name": "Backend Starter Kit",
+      "summary": "A compact TypeScript/Express starting point with JSON parsing, CORS, Helmet and a health endpoint.",
+      "stack": ["TypeScript", "Node.js", "Express"],
+      "source_paths": ["backend-starter-kit/package.json", "backend-starter-kit/src/app.ts:1", "backend-starter-kit/src/server.ts:1"],
+      "verified_features": ["Express application installs JSON, CORS and Helmet middleware.", "GET /health returns JSON status.", "Manifest supplies TypeScript build and development commands."],
+      "recommended_narrative": "A small reusable backend scaffold; keep as an archive entry rather than a featured case study.",
+      "uncertainties": ["No tests or build run; imported config module was excluded from reading because it is environment-related.", "Zod dependency presence does not prove implemented request validation.", "Do not call production-ready or security-audited.", "Ownership and public source URL not verified."],
+      "publication_boundary": "Small factual summary; no environment configuration or security guarantees.",
+      "public_url": null
+    }
+  ],
+  "editorial_decisions": [
+    {"id": "DEC-CONTENT-01", "recommendation": "Feature four projects to show systems depth, desktop workflow design, interaction craft and full-stack breadth.", "evidence": "selected", "priority": "core"},
+    {"id": "DEC-CONTENT-02", "recommendation": "Use challenge → implementation decisions → demonstrated behavior → limits as the shared case-study structure.", "evidence": "docs/project-definition.json#REQ-03", "priority": "recommended"},
+    {"id": "DEC-CONTENT-03", "recommendation": "Omit project GitHub/live buttons until exact public URLs are supplied or verified; an honest internal case-study link is sufficient.", "evidence": "All project public_url values remain null", "priority": "core"},
+    {"id": "DEC-CONTENT-04", "recommendation": "Use technologies in context rather than proficiency percentages; show the system or workflow each technology enabled.", "evidence": "Source-backed stack and feature records", "priority": "recommended"}
+  ],
+  "verification": {"status": "source_audit_complete", "runtime_tests": "not_run_out_of_scope", "neighboring_project_mutations": false, "public_link_verification": "none", "metrics_claims": "none", "limitations": ["Source slices are evidence of code presence, not complete runtime correctness.", "Resume facts noted by parent handoff were not independently re-extracted by this node.", "This artifact is an editorial source audit, not a security or clinical review."]}
+}

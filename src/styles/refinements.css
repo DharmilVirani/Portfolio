@@ -1,0 +1,36 @@
+/* Layout support for the readable small-text scale. */
+html .brand-symbol { color: var(--accent); width: 52px; height: 52px; flex: 0 0 52px; }
+html .hero-actions, html .project-filters, html .social-links { flex-wrap: wrap; }
+html .project-meta, html .experience-date, html .hero-bottom { gap: 12px; flex-wrap: wrap; }
+html .social-links a { border: 1px solid #4c5354; border-radius: 3px; padding: 8px 12px; }
+html .social-links { gap: 12px; }
+html .social-links .social-logo { width: 44px; height: 44px; padding: 10px; justify-content: center; border-color: transparent; }
+html .social-links .social-logo svg { width: 24px; height: 24px; }
+html .social-links .social-logo:hover { border-color: currentColor; }
+html .contact-links { flex-wrap: wrap; }
+html .scene-caption { flex-wrap: wrap; }
+@media (min-width: 701px) {
+  html .hero-art .architecture-art { max-height: 440px; }
+}
+html .demo-node { min-width: 0; overflow-wrap: anywhere; }
+html .section-kicker { gap: 20px; }
+@media (max-width: 960px) {
+  html .hero-topline { gap: 20px; }
+  html .location-clock { display: block; flex-shrink: 0; text-align: right; }
+  html .location-clock > span { display: block; }
+  html .site-header { gap: 20px; }
+}
+@media (max-width: 700px) {
+  html .site-header nav { gap: 10px; flex-wrap: wrap; }
+  html .hero-topline { flex-wrap: wrap; }
+  html .hero-topline > span:first-child { max-width: none; }
+  html .location-clock { text-align: left; }
+  html .hero-bottom > span, html .hero-bottom > a { max-width: none; }
+  html .section-kicker > span:last-child { max-width: 48%; }
+  html .section-kicker { align-items: flex-start; }
+  html .section-kicker a { text-align: right; }
+  html .project-meta { align-items: flex-start; }
+  html .footer-bottom { display: flex; flex-wrap: wrap; }
+  html .email-link { overflow-wrap: anywhere; min-width: 0; }
+  html .demo-flow { grid-template-columns: 1fr; }
+}

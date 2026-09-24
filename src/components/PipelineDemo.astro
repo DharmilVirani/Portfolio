@@ -1,0 +1,47 @@
+---
+import Icon from './Icon.astro';
+---
+<section class="case-demo" aria-labelledby="pipeline-demo-title" data-pipeline-demo>
+  <span class="eyebrow">A SMALL, WORKING DEMONSTRATION</span>
+  <h3 id="pipeline-demo-title">Six events. One consistent candle.</h3>
+  <p>Step through a tiny event stream. Watch valid events update a minute candle, and see what happens when a duplicate or an older tick arrives.</p>
+  <div class="demo-flow"><div class="demo-node"><span>01 / INCOMING</span><strong data-event-count>0 / 6 events</strong></div><div class="demo-node"><span>02 / VALIDATION</span><strong data-accepted-count>0 accepted</strong></div><div class="demo-node"><span>03 / CANDLE</span><strong data-candle-state>Waiting for data</strong></div></div>
+  <output class="demo-result" data-event-result aria-live="polite">The sample contains four valid ticks, one duplicate, and one event outside the selected minute.</output>
+  <div class="candle-values" aria-label="Minute candle values"><span>OPEN <strong data-value="open">—</strong></span><span>HIGH <strong data-value="high">—</strong></span><span>LOW <strong data-value="low">—</strong></span><span>CLOSE <strong data-value="close">—</strong></span></div>
+  <div class="demo-actions js-only"><button class="button button-primary" data-next-event>Process next event <Icon name="arrow" /></button><button class="button button-secondary" data-reset-events>Reset</button></div>
+  <p class="demo-disclaimer">Synthetic local data · No broker connection. This simplified example uses arrival order, a single minute, and event IDs for deduplication; it is not production trading logic.</p>
+  <noscript><p>Enable JavaScript to step through this optional demonstration. Final sample candle: open 101, high 104, low 101, close 104. Four events accepted; two ignored.</p></noscript>
+</section>
+<script>
+  import { initialState, processTick, sampleTicks } from '../lib/pipeline';
+  const demo = document.querySelector<HTMLElement>('[data-pipeline-demo]');
+  if (demo) {
+    let state = initialState();
+    let index = 0;
+    const next = demo.querySelector<HTMLButtonElement>('[data-next-event]')!;
+    const set = (selector: string, value: string) => { const node = demo.querySelector(selector); if (node) node.textContent = value; };
+    next.addEventListener('click', () => {
+      if (index >= sampleTicks.length) return;
+      const result = processTick(state, sampleTicks[index]);
+      state = result.state;
+      index++;
+      set('[data-event-count]', `${index} / ${sampleTicks.length} events`);
+      set('[data-accepted-count]', `${state.accepted} accepted · ${state.duplicate + state.late} ignored`);
+      set('[data-candle-state]', '09:15 minute');
+      set('[data-event-result]', result.message);
+      for (const key of ['open', 'high', 'low', 'close'] as const) set(`[data-value="${key}"]`, String(state.candle?.[key] ?? '—'));
+      demo.querySelectorAll('.demo-node').forEach((node, i) => node.classList.toggle('active', i === (result.outcome === 'accepted' ? 2 : 1)));
+      if (index === sampleTicks.length) { next.disabled = true; next.textContent = 'Sample complete'; }
+    });
+    demo.querySelector('[data-reset-events]')?.addEventListener('click', () => {
+      state = initialState(); index = 0; next.disabled = false; next.textContent = 'Process next event →';
+      set('[data-event-count]', '0 / 6 events'); set('[data-accepted-count]', '0 accepted'); set('[data-candle-state]', 'Waiting for data');
+      set('[data-event-result]', 'Sample reset. Four valid ticks, one duplicate, and one event outside the selected minute are ready.');
+      for (const key of ['open', 'high', 'low', 'close']) set(`[data-value="${key}"]`, '—');
+      demo.querySelectorAll('.demo-node').forEach(node => node.classList.remove('active'));
+    });
+  }
+</script>
+<style>
+  .candle-values{display:grid;grid-template-columns:repeat(4,1fr);border-block:1px solid var(--line);padding:15px 0;margin:0 0 20px;gap:12px;font-family:var(--mono);font-size:8px;color:var(--muted)}.candle-values strong{display:block;font-family:var(--font);font-size:21px;color:var(--ink);font-weight:500;margin-top:5px}.demo-disclaimer{font-size:9px!important;margin-top:19px!important}.button:disabled{background:#d8ddcf;color:#46523f;border-color:#b6c1ac;transform:none}
+</style>
